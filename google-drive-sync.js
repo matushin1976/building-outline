@@ -44,7 +44,7 @@ async function request(url,options={}){
 }
 async function findBackup(){
  const q=encodeURIComponent("name = '"+FILE+"' and trashed = false");
- const data=await request('https://www.googleapis.com/drive/v3/files?q='+q+'&spaces=drive&fields=nextPageToken,files(id,name,modifiedTime)&page_size=100');
+ const data=await request('https://www.googleapis.com/drive/v3/files?q='+q+'&spaces=drive&fields=nextPageToken,files(id,name,modifiedTime)&pageSize=100');
  const matches=data.files||[];
  matches.sort((a,b)=>b.modifiedTime.localeCompare(a.modifiedTime));
  return matches[0]||null;
