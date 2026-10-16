@@ -14,3 +14,10 @@ GitHub Pagesで公開する場合はリポジトリの Settings → Pages → De
 ## テスト
 `node tests/cases.test.cjs`
 `node tests/bosch-ble.test.cjs`
+## Googleドライブのバックアップ／復元（手動）
+- 端末内の自動保存は従来どおり継続します。全案件を Google Drive の `building-survey-backup.json` に保存・復元できます。
+- 初回のみ Google Cloud Console でプロジェクトを作り、Google Drive API を有効化し、OAuth 同意画面と**ウェブアプリケーション**用 OAuth クライアントIDを設定してください。Google アカウントがテストユーザーの場合はテストユーザーとして追加してください。
+- **承認済みの JavaScript 生成元**に GitHub Pages の origin（例：`https://matushin1976.github.io`）を追加します。クライアントシークレットをページに記入してはいけません。
+- アプリの入力欄に OAuth クライアントIDを入力し、Googleに接続 → 全案件をDriveに保存、または Driveから全案件を復元します。Driveのアクセス許可はアプリが作成したファイルに限定されます。
+- **自動同期・差分マージではありません。** Driveへの保存は既存バックアップを上書きし、復元は端末内の全案件を置き換えます。重要な作業では端末のJSONも保存してください。復元直前のローカルデータはブラウザ内 `building-survey-before-drive-restore` に控えます。
+- このページは公開GitHub Pages上にあるため、OAuthクライアントIDのみ公開可能です。Googleのアクセストークンや秘密鍵をGitHubへコミットしないでください。
